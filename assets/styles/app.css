@@ -1,0 +1,16 @@
+@import "~bootstrap";
+body {
+    font-family: spartan;
+    color: #444;
+}
+
+footer {
+    background-color: #efefee;
+}
+
+.example-wrapper {
+    margin: 1em auto;
+    max-width: 800px;
+    width: 95%;
+    font: 18px/1.5 sans-serif;
+}
