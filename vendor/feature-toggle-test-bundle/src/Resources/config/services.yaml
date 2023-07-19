@@ -1,0 +1,8 @@
+parameters:
+    feature_toggle.feature.class: Simformsolutions\FeatureToggleTestBundle\Feature\Feature
+    feature_toggle.manager.class: Simformsolutions\FeatureToggleTestBundle\Feature\FeatureManager
+
+services:
+    feature_toggle.manager:
+        class: '%feature_toggle.manager.class%'
+        arguments: []
