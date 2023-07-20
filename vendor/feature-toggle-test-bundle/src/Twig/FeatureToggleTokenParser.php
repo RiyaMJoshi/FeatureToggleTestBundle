@@ -9,6 +9,17 @@ use Twig\Error\SyntaxError;
 use Twig\Token;
 use Twig\TokenParser\AbstractTokenParser;
 
+/**
+ * Parses a feature tag
+ *
+ * {% feature name %}
+ * code
+ * {% endfeature %}
+ * ---- EQUALS --------
+ * {% if feature_enabled(name) === true %}
+ * code
+ * {% endif %}
+ */
 class FeatureToggleTokenParser extends AbstractTokenParser
 {
     protected $manager;
@@ -32,7 +43,7 @@ class FeatureToggleTokenParser extends AbstractTokenParser
                 $name = $stream->next()->getValue();
 
                 if (!$this->manager->has($name)) {
-                    throw new FeatureToggleNotFoundException("The feature %s does not exist.", $name);
+                    throw new FeatureToggleNotFoundException(sprintf('The feature "%s" does not exist.', $name));
                 } else {
                     $feature = $this->manager->get($name);
                 }
